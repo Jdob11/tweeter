@@ -26,4 +26,12 @@ body {
 
 body {
   font-family: "Source Sans 3", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main {
+  width: 90%;
+  background-color: #f4f1ec;
 }
