@@ -5,6 +5,8 @@ nav {
   font-family: "Source Sans 3", sans-serif;
   color: #FFFFFF;
   padding: 2em 1.5em 0 1.5em;
+  position: fixed;
+  top: 0;
 }
 
 nav span {
