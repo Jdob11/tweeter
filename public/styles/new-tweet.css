@@ -2,7 +2,11 @@ form {
   width: inherit;
 }
 
-.new-tweet {
+.new-tweet-header {
+  margin: 1em 0 0 0;
+}
+
+.new-tweet-input {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,7 +16,6 @@ form {
 .new-tweet textarea {
   width: 100%;
   font-weight: 600;
-  padding: .75em 0 0 0;
   scrollbar-width: none;
   resize: none;
   box-sizing: border-box;
@@ -20,13 +23,6 @@ form {
   border: none;
   border-bottom: solid;
   border-width: 5px;
-}
-
-::placeholder {
-  color: #000000;
-  font-size: 1.15em;
-  position: relative;
-  top: .3em;
 }
 
 .button-counter {

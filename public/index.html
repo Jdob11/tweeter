@@ -52,13 +52,16 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <form action="/tweets/" method="POST" >
-          <textarea name="text" id="tweet-text" maxlength="140" label="Compose tweet" placeholder="What are you humming about?"></textarea>
-          <div class="button-counter">
-            <button class="tweet-button" type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </form>
+        <h3 class="new-tweet-header">What are you humming about?</h3>
+        <div class="new-tweet-input">
+          <form action="/tweets/" method="POST" >
+            <textarea name="text" id="tweet-text" label="Compose tweet" ></textarea>
+            <div class="button-counter">
+              <button class="tweet-button" type="submit">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+          </form>
+        </div>
       </section>
     </main>
   </body>
