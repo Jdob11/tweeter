@@ -1,9 +1,14 @@
+:root {
+  --nav-background-color: #4056A1;
+  --nav-color: #FFFFFF;
+}
+
 nav {
   height: 120px;
   width: 100%;
-  background-color: #4056A1;
+  background-color: var(--nav-background-color);
   font-family: "Source Sans 3", sans-serif;
-  color: #FFFFFF;
+  color: var(--nav-color);
   padding: 2em 1.5em 0 1.5em;
   position: fixed;
   top: 0;
