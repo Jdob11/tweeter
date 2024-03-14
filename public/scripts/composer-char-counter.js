@@ -1,7 +1,7 @@
 /* global $ document */
 
 $(document).ready(function() {
-  $('#tweet-text').on('input', function() {
+  $('#tweet-text').on('keyup', function() {
     const characterCount = $(this).val().length;
     const counter = $(this).closest('.new-tweet').find('.counter');
     counter.text(140 - characterCount);
