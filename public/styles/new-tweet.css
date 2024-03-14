@@ -44,6 +44,10 @@ form {
   color: #000000;
 }
 
+.red-text {
+  color: red;
+}
+
 .disabled {
   opacity: 0.5;
 }

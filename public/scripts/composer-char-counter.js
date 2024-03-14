@@ -6,11 +6,11 @@ $(document).ready(function() {
     const counter = $(this).closest('.new-tweet').find('.counter');
     counter.text(140 - characterCount);
     if (characterCount > 140) {
-      counter.css('color', 'red');
+      $(counter).addClass('red-text');
       $('.tweet-button').prop('disabled', true);
       $('.tweet-button').addClass('disabled');
     } else {
-      counter.css('color', 'black');
+      $(counter).removeClass('red-text');
       $('.tweet-button').prop('disabled', false);
       $('.tweet-button').removeClass('disabled');
     }
