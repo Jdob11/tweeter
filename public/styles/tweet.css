@@ -8,14 +8,14 @@
 }
 
 .tweet:hover {
-  box-shadow: #d4e3ff .25em .25em;
+  box-shadow: #b4bcda .25em .25em;
 }
 
 .tweet-content p {
   font-weight: bolder;
   border-bottom: solid;
   border-width: 5px;
-  padding: .5em;
+  padding: .5em .5em 1em .5em;
   margin: 1em 0 .5em 0;
 }
 
@@ -29,7 +29,13 @@
 }
 
 .avatar {
+  height: 3.5em;
+  width: 3.5em;
   padding: .5em;
+}
+
+.tweet-user {
+  align-self: center;
 }
 
 .handle {
@@ -65,7 +71,7 @@
 }
 
 .time-since-tweet p {
-  font-size: .75em;
+  font-size: .7em;
   font-weight: bolder;
   margin: 0 0 1em 0;
   padding: 0 1em;
