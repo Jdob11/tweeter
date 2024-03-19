@@ -34,18 +34,18 @@ form {
 
 .tweet-button {
   background-color: var(--nav-background-color);
-  color: var(--nav-color);
+  color: var(--nav-text-color);
   font-family: "Bungee", sans-serif ;
   padding: .1em .5em;
 }
 
 .counter {
   font-family: "Bungee";
-  color: #000000;
+  color: var(--counter-text-color);
 }
 
 .red-text {
-  color: red;
+  color: var(--counter-over-limit-text-color);
 }
 
 .disabled {

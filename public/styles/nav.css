@@ -1,14 +1,9 @@
-:root {
-  --nav-background-color: #4056A1;
-  --nav-color: #FFFFFF;
-}
-
 nav {
   height: 120px;
   width: 100%;
   background-color: var(--nav-background-color);
   font-family: "Source Sans 3", sans-serif;
-  color: var(--nav-color);
+  color: var(--nav-text-color);
   padding: 2em 1.5em 0 1.5em;
   position: fixed;
   top: 0;
@@ -31,10 +26,10 @@ nav span {
 }
 
 .nav-link {
-  color: #FFFFFF;
+  color: var(--nav-text-color);
   text-decoration: none;
 }
 
 .fa-angles-down {
-  color: red;
+  color: var(--nav-arrows-icon-color);
 }
