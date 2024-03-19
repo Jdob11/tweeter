@@ -1,10 +1,12 @@
 .tweet {
   width: 100%;
-  border: solid;
-  border-width: 5px;
   padding: .5em;
   margin: 1em 0;
   font-weight: 300;
+}
+
+.tweet-border {
+  border: solid 5px;
 }
 
 .tweet:hover {
@@ -35,7 +37,7 @@
 }
 
 .tweet-user {
-  align-self: center;
+  margin: 0;
 }
 
 .handle {
