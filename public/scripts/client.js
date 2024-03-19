@@ -32,12 +32,8 @@ $(() => {
   ];
 
   const renderTweets = (tweets) => {
-    const tweetArray = [];
     const $tweetContainer = $('.tweet-container');
-    for (let tweet of tweets) {
-      tweet = createTweetElement(tweet);
-      tweetArray.push(tweet);
-    }
+    const tweetArray = tweets.map(createTweetElement);
     $tweetContainer.prepend(tweetArray);
     return $tweetContainer;
   };
