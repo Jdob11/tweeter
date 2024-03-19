@@ -38,7 +38,7 @@ $(() => {
       tweet = createTweetElement(tweet);
       tweetArray.push(tweet);
     }
-    $tweetContainer.append(tweetArray);
+    $tweetContainer.prepend(tweetArray);
     return $tweetContainer;
   };
 
