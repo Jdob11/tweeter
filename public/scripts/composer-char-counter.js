@@ -1,6 +1,6 @@
 /* global $ document */
 
-$(document).ready(function() {
+$(() => {
   $('#tweet-text').on('keyup', function() {
     const characterCount = $(this).val().length;
     const counter = $(this).closest('.new-tweet').find('.counter');

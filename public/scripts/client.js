@@ -5,39 +5,7 @@
  */
 /* global $ */
 
-$(() => {
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ];
-
-  const renderTweets = (tweets) => {
-    const $tweetContainer = $('.tweet-container');
-    const tweetArray = tweets.map(createTweetElement);
-    $tweetContainer.prepend(tweetArray);
-    return $tweetContainer;
-  };
-
+$(() => {  
   const createTweetElement = (tweet) => {
     const { user, content, created_at: createdAt } = tweet;
     const $tweet = $('<article>').addClass('tweet').addClass('tweet-border');
@@ -48,30 +16,76 @@ $(() => {
     const $handle = $('<div>').addClass('handle').append($('<p>').text(user.handle));
     const $tweetContent = $('<div>').addClass('tweet-content').append($('<p>').text(content.text));
     const $footer = $('<footer>');
-    const $timeSinceTweet = $('<div>').addClass('time-since-tweet').append($('<p>').text(createdAt));
+    const $timeSinceTweet = $('<div>').addClass('time-since-tweet').append($('<p>').text(timeago.format(createdAt)));
     const $tweetIcons = $('<div>').addClass('tweet-icons').append(
       $('<i>').addClass('fa-solid fa-flag'),
       $('<i>').addClass('fa-solid fa-retweet'),
       $('<i>').addClass('fa-solid fa-heart'),
-    );
+      );
+      
+      $avatarContainer.append($avatarImage, $tweetUser);
+      $header.append($avatarContainer, $handle);
+      $footer.append($timeSinceTweet, $tweetIcons);
+      $tweet.append($header, $tweetContent, $footer);
+      
+      return $tweet;
+    };
 
-    $avatarContainer.append($avatarImage, $tweetUser);
-    $header.append($avatarContainer, $handle);
-    $footer.append($timeSinceTweet, $tweetIcons);
-    $tweet.append($header, $tweetContent, $footer);
+    const renderTweets = (tweets) => {
+      const $tweetContainer = $('.tweet-container');
+      const tweetArray = tweets.reverse().map(createTweetElement);
+      $tweetContainer.prepend(tweetArray);
+      return $tweetContainer;
+    };
 
-    return $tweet;
-  };
-
-  renderTweets(data);
-
-  $('form').on('submit', function (event) {
-    event.preventDefault();
-    const serializedData = $(this).serialize();
-    return $.ajax({
-      method: 'POST',
-      url: '/tweets',
-      data: serializedData
+    const loadTweets = function () {
+      $.ajax({
+        method: 'GET',
+        url: '/tweets'
+      })
+      .then(function (tweets) {
+        renderTweets(tweets)
+      })
+      .fail(function (error) {
+        console.error("Error loading tweets:", error);
+      });
+    };
+  
+    loadTweets();
+  
+    $('#tweet-form').on('submit', function(event) {
+      event.preventDefault();
+      submitTweet();
     });
+  
+    $('#tweet-text').on('keypress', function(event) {
+      if (event.keyCode === 13 && !event.shiftKey) {
+        event.preventDefault();
+        submitTweet();
+      }
+    });
+  
+    $('.tweet-button').on('click', function() {
+      submitTweet();
+    });
+  
+    function submitTweet() {
+      const serializedData = $('#tweet-form').serialize();
+      $.ajax({
+        method: 'POST',
+        url: '/tweets',
+        data: serializedData
+      })
+      .done(function() {
+        $('#tweet-form')[0].reset();
+        $('.tweet-container article').remove();
+        loadTweets();
+        $('#tweet-text').closest('.new-tweet').find('.counter').text(140);
+        $('#tweet-text').removeClass('red-text');
+        $('.tweet-button').prop('disabled', false).removeClass('disabled');
+      })
+      .fail(function(error) {
+        console.error("Error submitting tweet:", error);
+      });
+    }
   });
-});
