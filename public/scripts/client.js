@@ -64,4 +64,14 @@ $(() => {
   };
 
   renderTweets(data);
+
+  $('form').on('submit', function (event) {
+    event.preventDefault();
+    const serializedData = $(this).serialize();
+    return $.ajax({
+      method: 'POST',
+      url: '/tweets',
+      data: serializedData
+    });
+  });
 });
