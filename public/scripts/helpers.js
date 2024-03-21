@@ -83,15 +83,22 @@ const submitTweet = function() {
   // validate that text area is not empty, and prepend error message if it is
   const tweetText = $('#tweet-text').val().trim();
   if (tweetText === '') {
-    const $errorMessage = $('<div>').addClass('error-message').text('Tweet text cannot be empty');
-    $('.tweet-container').prepend($errorMessage);
-    // remove error message and reactivate tweet button after delay
-    setTimeout(function() {
-      $errorMessage.fadeOut('slow', function() {
-        $(this).remove();
-        $('.tweet-button').prop('disabled', false).removeClass('disabled');
-      });
-    }, 1000);
+    // const $errorMessage = $('<div>').addClass('error-message').text('Tweet text cannot be empty');
+    // $('.tweet-container').prepend($errorMessage);
+    // // remove error message and reactivate tweet button after delay
+    // setTimeout(function() {
+    //   $errorMessage.fadeOut('slow', function() {
+    //     $(this).remove();
+    //     $('.tweet-button').prop('disabled', false).removeClass('disabled');
+    //   });
+    // }, 1000);
+    window.alert('Tweet text cannot be empty');
+    $('.tweet-button').prop('disabled', false).removeClass('disabled');
+    return;
+  }
+  if (tweetText.length > 140) {
+    window.alert('Tweets cannot be more than 140 characters');
+    $('.tweet-button').prop('disabled', false).removeClass('disabled');
     return;
   }
   // serialize data for submission
