@@ -82,7 +82,7 @@ const submitTweet = function() {
   $('.tweet-button').prop('disabled', true).addClass('disabled');
   // validate that text area is not empty, and prepend error message if it is
   const tweetText = $('#tweet-text').val().trim();
-  if (tweetText === '') {
+  if (tweetText === '' || tweetText === null) {
     // const $errorMessage = $('<div>').addClass('error-message').text('Tweet text cannot be empty');
     // $('.tweet-container').prepend($errorMessage);
     // // remove error message and reactivate tweet button after delay
