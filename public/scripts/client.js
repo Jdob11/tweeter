@@ -42,7 +42,7 @@ $(() => {
     const $tweetContainer = $('.tweet-container');
     const tweetArray = tweets.reverse().map(createTweetElement);
     $tweetContainer.prepend(tweetArray);
-    return $tweetContainer;
+    return;
   };
 
   // function to load tweets from server
@@ -53,7 +53,7 @@ $(() => {
       url: '/tweets'
     })
       // if successful, render the tweets
-      .then(function(tweets) {
+      .then((tweets) => {
         renderTweets(tweets);
       })
       // if unsuccessful, prepend error message to tweet container and console for debugging
@@ -86,6 +86,23 @@ $(() => {
     submitTweet();
   });
   
+  //function to prepend new tweet to existing tweets
+  const prependNewTweet = function() {
+      // get the new tweet and prepend it to the existing tweets
+  $.ajax({
+    method: 'GET',
+    url: '/tweets'
+  })
+    .done(function(tweets) {
+      const newTweet = tweets[tweets.length - 1]; // Assuming the new tweet is the first one returned
+      const $newTweetElement = createTweetElement(newTweet);
+      $('.tweet-container').prepend($newTweetElement);
+    })
+    .fail(function(xhr, textStatus, errorThrown) {
+      console.error("Error loading new tweet:", errorThrown);
+    });
+  };
+
   // function for tweet submission
   const submitTweet = function() {
     // disable tweet button to prevent multiple submissions
@@ -113,20 +130,21 @@ $(() => {
       data: serializedData
     })
       // if successful, reset form, empty tweet container, load tweets, reset counter and reenable tweet button
-      .done(function() {
+      .done(() => {
+        prependNewTweet();
         $('#tweet-form')[0].reset();
-        $('.tweet-container article').remove();
-        loadTweets();
+        // $('.tweet-container article').remove();
+        // loadTweets();
         $('#tweet-text').closest('.new-tweet').find('.counter').text(140);
         $('#tweet-text').removeClass('red-text');
         $('.tweet-button').prop('disabled', false).removeClass('disabled');
       })
       // if unsuccessful, log error for debugging
-      .fail(function(error) {
+      .fail((error) => {
         console.error("Error submitting tweet:", error);
       })
       // always reenable button after submission attempt
-      .always(function() {
+      .always(() => {
         $('.tweet-button').prop('disabled', false).removeClass('disabled');
       });
   };
