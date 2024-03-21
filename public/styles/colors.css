@@ -12,4 +12,8 @@
   --tweet-icons-hover-color: #be9202;
   --user-header-text-color: #ffffff;
   --user-header-background-color: #f7ad25;
+  --error-message-text-color: #ffffff;
+  --error-message-background-color: #ff8787;
+  --error-message-shadow-color: #ff0000;
+
 }

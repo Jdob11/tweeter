@@ -51,3 +51,30 @@ form {
 .disabled {
   opacity: 0.5;
 }
+
+.hidden {
+  display: none;
+}
+
+.error-message {
+  color: var(--error-message-text-color);
+  background-color: var(--error-message-background-color);
+  border: 5px var(--error-message-shadow-color);
+  padding: 1em;
+  margin: 1em 0 .5em 0;
+  position: relative;
+  box-shadow: var(--error-message-shadow-color) .25em .25em;
+}
+
+.error-message:before{
+  content: '';  
+  width: 0;  
+  height: 0;  
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid var(--error-message-background-color);
+  position: absolute;  
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%); 
+}
