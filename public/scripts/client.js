@@ -129,12 +129,10 @@ $(() => {
       url: '/tweets',
       data: serializedData
     })
-      // if successful, reset form, empty tweet container, load tweets, reset counter and reenable tweet button
+      // if successful prepend new tweet to existing tweet container, reset form, reset counter and reenable tweet button
       .done(() => {
         prependNewTweet();
         $('#tweet-form')[0].reset();
-        // $('.tweet-container article').remove();
-        // loadTweets();
         $('#tweet-text').closest('.new-tweet').find('.counter').text(140);
         $('#tweet-text').removeClass('red-text');
         $('.tweet-button').prop('disabled', false).removeClass('disabled');
