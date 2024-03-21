@@ -6,8 +6,11 @@
 /* global $ */
 
 $(() => {
+  // function to create 
   const createTweetElement = (tweet) => {
+    // destructuring tweet object
     const { user, content, created_at: createdAt } = tweet;
+    // creating individual elements with necessary classes and text
     const $tweet = $('<article>').addClass('tweet').addClass('tweet-border');
     const $header = $('<header>');
     const $avatarContainer = $('<div>').addClass('avatar-container');
@@ -23,14 +26,18 @@ $(() => {
       $('<i>').addClass('fa-solid fa-heart'),
     );
       
+    // appending elements into appropriate containers for formatting
     $avatarContainer.append($avatarImage, $tweetUser);
     $header.append($avatarContainer, $handle);
     $footer.append($timeSinceTweet, $tweetIcons);
+
+    // appending containers to create complete tweet element
     $tweet.append($header, $tweetContent, $footer);
       
     return $tweet;
   };
 
+  // function to create multiple tweet elements and prepend them to tweet container
   const renderTweets = (tweets) => {
     const $tweetContainer = $('.tweet-container');
     const tweetArray = tweets.reverse().map(createTweetElement);
@@ -38,14 +45,18 @@ $(() => {
     return $tweetContainer;
   };
 
+  // function to load tweets from server
   const loadTweets = function() {
+    // AJAX GET request to retrieve tweets
     $.ajax({
       method: 'GET',
       url: '/tweets'
     })
+      // if successful, render the tweets
       .then(function(tweets) {
         renderTweets(tweets);
       })
+      // if unsuccessful, prepend error message to tweet container and console for debugging
       .fail(function(xhr, textStatus, errorThrown) {
         const $errorMessage = $('<div>').addClass('error-message').text('Tweets failed to load. Please try again later');
         $('.tweet-container').prepend($errorMessage);
@@ -55,11 +66,13 @@ $(() => {
   
   loadTweets();
   
+  // event listener to prevent default submit action and run submit tweet function
   $('#tweet-form').on('submit', function(event) {
     event.preventDefault();
     submitTweet();
   });
   
+  // event listener to prevent default use of enter key to line down in text area and allow user to submit tweet with enter key (and line down with shift + enter)
   $('#tweet-text').on('keypress', function(event) {
     if (event.keyCode === 13 && !event.shiftKey) {
       event.preventDefault();
@@ -67,17 +80,22 @@ $(() => {
     }
   });
   
+  // event listener to prevent default action of tweet button and run submit tweet function
   $('.tweet-button').on('click', function(event) {
     event.preventDefault();
     submitTweet();
   });
   
+  // function for tweet submission
   const submitTweet = function() {
+    // disable tweet button to prevent multiple submissions
     $('.tweet-button').prop('disabled', true).addClass('disabled');
+    // validate that text area is not empty, and prepend error message if it is
     const tweetText = $('#tweet-text').val().trim();
     if (tweetText === '') {
       const $errorMessage = $('<div>').addClass('error-message').text('Tweet text cannot be empty');
       $('.tweet-container').prepend($errorMessage);
+      // remove error message and reactivate tweet button after delay
       setTimeout(function() {
         $errorMessage.fadeOut('slow', function() {
           $(this).remove();
@@ -86,12 +104,15 @@ $(() => {
       }, 1000);
       return;
     }
+    // serialize data for submission
     const serializedData = $('#tweet-form').serialize();
+    // submit with AJAX POST request 
     $.ajax({
       method: 'POST',
       url: '/tweets',
       data: serializedData
     })
+      // if successful, reset form, empty tweet container, load tweets, reset counter and reenable tweet button
       .done(function() {
         $('#tweet-form')[0].reset();
         $('.tweet-container article').remove();
@@ -100,9 +121,11 @@ $(() => {
         $('#tweet-text').removeClass('red-text');
         $('.tweet-button').prop('disabled', false).removeClass('disabled');
       })
+      // if unsuccessful, log error for debugging
       .fail(function(error) {
         console.error("Error submitting tweet:", error);
       })
+      // always reenable button after submission attempt
       .always(function() {
         $('.tweet-button').prop('disabled', false).removeClass('disabled');
       });
