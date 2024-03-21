@@ -67,12 +67,25 @@ $(() => {
     }
   });
   
-  $('.tweet-button').on('click', function() {
+  $('.tweet-button').on('click', function(event) {
+    event.preventDefault();
     submitTweet();
   });
   
   const submitTweet = function() {
     $('.tweet-button').prop('disabled', true).addClass('disabled');
+    const tweetText = $('#tweet-text').val().trim();
+    if (tweetText === '') {
+      const $errorMessage = $('<div>').addClass('error-message').text('Tweet text cannot be empty');
+      $('.tweet-container').prepend($errorMessage);
+      setTimeout(function() {
+        $errorMessage.fadeOut('slow', function() {
+          $(this).remove();
+          $('.tweet-button').prop('disabled', false).removeClass('disabled');
+        });
+      }, 1000);
+      return;
+    }
     const serializedData = $('#tweet-form').serialize();
     $.ajax({
       method: 'POST',
