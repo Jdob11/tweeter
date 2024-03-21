@@ -7,7 +7,6 @@
 
 $(() => {
   const createTweetElement = (tweet) => {
-    const timeago = timeago;
     const { user, content, created_at: createdAt } = tweet;
     const $tweet = $('<article>').addClass('tweet').addClass('tweet-border');
     const $header = $('<header>');
@@ -47,8 +46,10 @@ $(() => {
       .then(function(tweets) {
         renderTweets(tweets);
       })
-      .fail(function(error) {
-        console.error("Error loading tweets:", error);
+      .fail(function(xhr, textStatus, errorThrown) {
+        const $errorMessage = $('<div>').addClass('error-message').text('Tweets failed to load. Please try again later');
+        $('.tweet-container').prepend($errorMessage);
+        console.error("Error loading tweets:", errorThrown);
       });
   };
   
@@ -71,6 +72,7 @@ $(() => {
   });
   
   const submitTweet = function() {
+    $('.tweet-button').prop('disabled', true).addClass('disabled');
     const serializedData = $('#tweet-form').serialize();
     $.ajax({
       method: 'POST',
@@ -87,6 +89,9 @@ $(() => {
       })
       .fail(function(error) {
         console.error("Error submitting tweet:", error);
+      })
+      .always(function() {
+        $('.tweet-button').prop('disabled', false).removeClass('disabled');
       });
   };
 });
