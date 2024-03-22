@@ -29,7 +29,7 @@ $(() => {
     submitTweet();
   });
 
-  $('.nav-link').on('click', function(event) {
+  $('.nav-links').on('click', '.nav-link, .fa-angles-down', function(event) {
     event.preventDefault();
     if ( $('.new-tweet').first().is(':hidden')) {
       $('.new-tweet').slideDown('slow', function() {
@@ -38,5 +38,19 @@ $(() => {
     } else {
       $('.new-tweet').slideUp('slow')
     }
+  });
+
+  $(window).on('scroll', function() {
+    if ($(this).scrollTop() === 0) {
+      $('.scroll-up-button').slideUp('fast');
+      $('.nav-links').slideDown('fast');
+    } else {
+      $('.scroll-up-button').slideDown('fast');
+      $('.nav-links').slideUp('fast');
+    }
+  })
+
+  $('.scroll-up-button').on('click', function() {
+    $('html, body').animate({ scrollTop: 0 }, 'slow');
   });
 });
