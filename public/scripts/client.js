@@ -29,7 +29,7 @@ $(() => {
     submitTweet();
   });
 
-  $('.nav-links').on('click', (event) => {
+  $('.nav-links').on('click', function(event) {
     event.preventDefault();
     if ( $('.new-tweet').first().is(':hidden')) {
       $('.new-tweet').slideDown('slow', function() {

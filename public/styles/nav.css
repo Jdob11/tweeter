@@ -40,6 +40,6 @@ nav span {
   animation-play-state: paused;
 }
 
-.nav-links:hover .fa-angles-down {
+.nav-links .nav-link:hover + .fa-angles-down {
   animation: moveUpDown 1s infinite;
 }
