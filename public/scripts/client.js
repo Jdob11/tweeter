@@ -41,7 +41,7 @@ $(() => {
   });
 
   $(window).on('scroll', function() {
-    if ($(this).scrollTop() === 0) {
+    if ($(this).scrollTop() < 500) {
       $('.scroll-up-button').slideUp('fast');
       $('.nav-links').slideDown('fast');
     } else {
