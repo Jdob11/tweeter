@@ -52,5 +52,8 @@ $(() => {
 
   $('.scroll-up-button').on('click', function() {
     $('html, body').animate({ scrollTop: 0 }, 'slow');
+    $('.new-tweet').slideDown('slow', function() {
+      $(this).find('textarea').focus();
+    })
   });
 });
