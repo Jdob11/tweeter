@@ -30,6 +30,10 @@ nav span {
   text-decoration: none;
 }
 
+.nav-link:hover {
+  cursor: pointer;
+}
+
 @keyframes moveUpDown {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(5px); }
