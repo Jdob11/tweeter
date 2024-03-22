@@ -28,4 +28,15 @@ $(() => {
     event.preventDefault();
     submitTweet();
   });
+
+  $('.nav-links').on('click', (event) => {
+    event.preventDefault();
+    if ( $('.new-tweet').first().is(':hidden')) {
+      $('.new-tweet').slideDown('slow', function() {
+        $(this).find('textarea').focus();
+      })
+    } else {
+      $('.new-tweet').slideUp('slow')
+    }
+  });
 });
