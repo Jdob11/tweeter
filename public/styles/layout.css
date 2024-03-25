@@ -33,3 +33,9 @@ main {
   margin: 0 auto;
   background-color: inherit;
 }
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+  }
+}

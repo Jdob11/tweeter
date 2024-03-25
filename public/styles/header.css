@@ -14,3 +14,10 @@
 .thin {
   font-weight: lighter;
 }
+
+@media (min-width: 1024px) {
+  .user-header {
+    width: 33.3%;
+    margin: 10em 5em 5em 5em;
+  } 
+}
