@@ -79,11 +79,12 @@ form {
   transform: translateX(-50%); 
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   .new-tweet.hidden {
     display: block;
   }
+
   .new-tweet {
-    margin: 10em 5em 1em 5em;
+    margin: 10em 2em 1em 3em;
   }
 }

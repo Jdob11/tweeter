@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 120px;
+  margin-top: 220px;
   color: var(--user-header-text-color);
   background-color: var(--user-header-background-color);
   background-image: url("https://www.transparenttextures.com/patterns/foggy-birds.png");
@@ -15,9 +15,15 @@
   font-weight: lighter;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 576px) {
+  .user-header{
+    margin-top: 120px;
+  }
+}
+
+@media (min-width: 1200px) {
   .user-header {
-    width: 33.3%;
-    margin: 10em 5em 5em 5em;
+    width: 45%;
+    margin: 10em 3em 5em 2em;
   } 
 }

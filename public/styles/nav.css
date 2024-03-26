@@ -1,5 +1,5 @@
 nav {
-  height: 120px;
+  height: 220px;
   width: 100%;
   background-color: var(--nav-background-color);
   font-family: "Source Sans 3", sans-serif;
@@ -12,17 +12,18 @@ nav {
 nav span {
   font-family: "Bungee", sans-serif;
   font-size: 2.5rem;
+  margin-bottom: 1em;
 }
 
 .nav-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
 }
 
 .nav-links {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .nav-link {
@@ -70,4 +71,19 @@ nav span {
 .scroll-up-button:hover {
   animation: moveUpDown 1s infinite;
   box-shadow: var(--nav-scroll-up-button-shadow) .1em .2em;
+}
+
+@media (min-width: 576px) {
+nav {
+  height: 120px;
+}
+
+.nav-container  {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.nav-links {
+  align-items: center;
 }

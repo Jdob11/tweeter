@@ -23,6 +23,7 @@
 
 .tweet header {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
@@ -79,8 +80,26 @@
   padding: 0 1em;
 }
 
-@media (min-width: 1024px) {
+
+@media (min-width: 1200px) {
   .tweet-container {
-    margin: 0 5em 5em 5em;
+    margin: 0 2em 5em 3em;
+    transition: margin-top 0.9s ease;
+  }
+  
+  .desktop-margin {
+    margin-top: 10em;
+  }
+
+  .desktop-fullscreen {
+    width:100%;
+    margin: 0;
+  }
+
+}
+
+@media (min-width: 576px) {
+  .tweet header {
+    flex-direction: row;
   }
 }
