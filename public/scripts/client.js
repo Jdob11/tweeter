@@ -46,16 +46,15 @@ $(() => {
 
   // event listener to hide nav link and reveal scroll up button when user has scrolled past 500px, to reverse if user scrolls back above 500px
   $(window).on('scroll', function() {
-    if ($(this).scrollTop() < 510) {
+    let scrollTop = $(this).scrollTop();
+    if (scrollTop <510) {
       $('.scroll-up-button').slideUp('fast');
       $('.nav-links').slideDown('fast');
       $('.tweet-container').removeClass('desktop-fullscreen');
-      $('.user-header').removeClass('hidden');
     } else {
       $('.scroll-up-button').slideDown('fast');
       $('.nav-links').slideUp('fast');
       $('.tweet-container').addClass('desktop-fullscreen');
-      $('.user-header').addClass('hidden');
     }
   })
 
