@@ -76,34 +76,48 @@ const prependNewTweet = function() {
     });
 };
 
+const showError = function(message) {
+  $('.error-message').text(message);
+  // Slide down error message if it's currently hidden
+    $('.error-message').slideDown('slow');
+}
+
+const hideError = function() {
+  // Slide up error message if it's currently visible
+  if ($('.error-message').is(':visible')) {
+    $('.error-message').slideUp('slow');
+  }
+}
+
 // function for tweet submission
 const submitTweet = function() {
   // disable tweet button to prevent multiple submissions
   $('.tweet-button').prop('disabled', true).addClass('disabled');
-  // validate that text area is not empty, and reveal error message if it is
+  
+  // validate that text area is not empty
   const tweetText = $('#tweet-text').val().trim();
   if (tweetText === '' || tweetText === null) {
     $('.error-message').text('Tweet text cannot be empty');
-    if ( $('.error-message').first().is(':hidden')) {
-      $('.error-message').slideDown('slow')
-      setTimeout(function() {
-        $('.tweet-button').prop('disabled', false).removeClass('disabled');
-        $('.error-message').slideUp('slow')
-      }, 3000)
-    }
+    // Reenable tweet button after 3-second timeout
+    setTimeout(() => {
+      $('.tweet-button').prop('disabled', false).removeClass('disabled');
+    }, 1000);
     return;
   }
+  
+  // validate that tweet text length is within limit
   if (tweetText.length > 140) {
     $('.error-message').text('Tweets cannot exceed 140 characters');
-    if ( $('.error-message').first().is(':hidden')) {
-      $('.error-message').slideDown('slow')
-      setTimeout(function() {
-        $('.tweet-button').prop('disabled', false).removeClass('disabled');
-        $('.error-message').slideUp('slow')
-      }, 3000)
-    }
+    // Reenable tweet button after 3-second timeout
+    setTimeout(() => {
+      $('.tweet-button').prop('disabled', false).removeClass('disabled');
+    }, 1000);
     return;
   }
+  
+  // If input is valid, enable tweet button and hide error message
+  $('.tweet-button').prop('disabled', false).removeClass('disabled');
+  hideError();
   // serialize data for submission
   const serializedData = $('#tweet-form').serialize();
   // submit with AJAX POST request

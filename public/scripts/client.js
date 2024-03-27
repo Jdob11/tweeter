@@ -12,6 +12,8 @@ $(() => {
   // event listener to prevent default submit action and run submit tweet function
   $('#tweet-form').on('submit', function(event) {
     event.preventDefault();
+    hideError();
+    showError();
     submitTweet();
   });
   
@@ -19,6 +21,8 @@ $(() => {
   $('#tweet-text').on('keypress', function(event) {
     if (event.keyCode === 13 && !event.shiftKey) {
       event.preventDefault();
+      hideError();
+      showError();
       submitTweet();
     }
   });
@@ -26,6 +30,8 @@ $(() => {
   // event listener to prevent default action of tweet button and run submit tweet function
   $('.tweet-button').on('click', function(event) {
     event.preventDefault();
+    hideError();
+    showError();
     submitTweet();
   });
 

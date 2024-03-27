@@ -62,6 +62,7 @@ nav span {
   background-color: var(--nav-scroll-up-button-color);
   color: var(--nav-scroll-up-icon-color);
   border: none;
+  display: none;
   cursor: pointer;
   position: fixed;
   bottom: 1em;
