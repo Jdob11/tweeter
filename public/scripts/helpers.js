@@ -76,9 +76,7 @@ const prependNewTweet = function() {
     });
 };
 
-const showError = function(message) {
-  $('.error-message').text(message);
-  // Slide down error message if it's currently hidden
+const showError = function() {
     $('.error-message').slideDown('slow');
 }
 
@@ -97,7 +95,9 @@ const submitTweet = function() {
   // validate that text area is not empty
   const tweetText = $('#tweet-text').val().trim();
   if (tweetText === '' || tweetText === null) {
+    hideError()
     $('.error-message').text('Tweet text cannot be empty');
+    showError();
     // Reenable tweet button after 3-second timeout
     setTimeout(() => {
       $('.tweet-button').prop('disabled', false).removeClass('disabled');
@@ -107,7 +107,9 @@ const submitTweet = function() {
   
   // validate that tweet text length is within limit
   if (tweetText.length > 140) {
+    hideError();
     $('.error-message').text('Tweets cannot exceed 140 characters');
+    showError();
     // Reenable tweet button after 3-second timeout
     setTimeout(() => {
       $('.tweet-button').prop('disabled', false).removeClass('disabled');
@@ -115,8 +117,8 @@ const submitTweet = function() {
     return;
   }
   
-  // If input is valid, enable tweet button and hide error message
-  $('.tweet-button').prop('disabled', false).removeClass('disabled');
+  // // If input is valid, enable tweet button and hide error message
+  // $('.tweet-button').prop('disabled', false).removeClass('disabled');
   hideError();
   // serialize data for submission
   const serializedData = $('#tweet-form').serialize();
