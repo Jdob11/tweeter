@@ -77,15 +77,20 @@ const prependNewTweet = function() {
 };
 
 const showError = function() {
-    $('.error-message').slideDown('slow');
-}
+  $('.error-message').slideDown('slow');
+};
 
 const hideError = function() {
-  // Slide up error message if it's currently visible
-  if ($('.error-message').is(':visible')) {
-    $('.error-message').slideUp('slow');
-  }
-}
+  return new Promise((resolve) => {
+    // Slide up error message if it's currently visible
+    if ($('.error-message').is(':visible')) {
+      $('.error-message').slideUp('slow', resolve);
+    } else {
+      // If error message is already hidden, resolve immediately
+      resolve();
+    }
+  });
+};
 
 // function for tweet submission
 const submitTweet = function() {
@@ -95,25 +100,27 @@ const submitTweet = function() {
   // validate that text area is not empty
   const tweetText = $('#tweet-text').val().trim();
   if (tweetText === '' || tweetText === null) {
-    hideError()
-    $('.error-message').text('Tweet text cannot be empty');
-    showError();
-    // Reenable tweet button after 3-second timeout
-    setTimeout(() => {
-      $('.tweet-button').prop('disabled', false).removeClass('disabled');
-    }, 1000);
+    hideError().then(() => {
+      $('.error-message').text('Tweet text cannot be empty');
+      showError();
+      // Reenable tweet button after 3-second timeout
+      setTimeout(() => {
+        $('.tweet-button').prop('disabled', false).removeClass('disabled');
+      }, 1000);
+    });
     return;
   }
   
   // validate that tweet text length is within limit
   if (tweetText.length > 140) {
-    hideError();
-    $('.error-message').text('Tweets cannot exceed 140 characters');
-    showError();
-    // Reenable tweet button after 3-second timeout
-    setTimeout(() => {
-      $('.tweet-button').prop('disabled', false).removeClass('disabled');
-    }, 1000);
+    hideError().then(() => {
+      $('.error-message').text('Tweets cannot exceed 140 characters');
+      showError();
+      // Reenable tweet button after 3-second timeout
+      setTimeout(() => {
+        $('.tweet-button').prop('disabled', false).removeClass('disabled');
+      }, 1000);
+    });
     return;
   }
   

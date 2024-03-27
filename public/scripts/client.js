@@ -3,7 +3,7 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-/* global $, loadTweets, submitTweet */
+/* global $, loadTweets, submitTweet, window */
 
 
 $(() => {
@@ -32,22 +32,22 @@ $(() => {
   // event listener to reveal new tweet section when nav link is clicked, focus cursor in text area, and rehide new tweet section if clicked again
   $('.nav-links').on('click', '.nav-link, .fa-angles-down', function(event) {
     event.preventDefault();
-    if ( $('.new-tweet').first().is(':hidden')) {
+    if ($('.new-tweet').first().is(':hidden')) {
       $('.new-tweet').slideDown('slow', function() {
         $(this).find('textarea').focus();
-      })
+      });
       $('.tweet-container').removeClass('desktop-margin');
     } else {
       $('.new-tweet').slideUp('slow', function() {
-      })
-      $('.tweet-container').addClass('desktop-margin')
+      });
+      $('.tweet-container').addClass('desktop-margin');
     }
   });
 
   // event listener to hide nav link and reveal scroll up button when user has scrolled past 500px, to reverse if user scrolls back above 500px
   $(window).on('scroll', function() {
     let scrollTop = $(this).scrollTop();
-    if (scrollTop <510) {
+    if (scrollTop < 510) {
       $('.scroll-up-button').slideUp('fast');
       $('.nav-links').slideDown('fast');
       $('.tweet-container').removeClass('desktop-fullscreen');
@@ -58,13 +58,13 @@ $(() => {
       $('.tweet-container').addClass('desktop-fullscreen');
       $('.user-header').addClass('hidden');
     }
-  })
+  });
 
   // event listener to scroll to the top, reveal the new tweet section and focus the cursor in the text area when scroll up button is clicked
   $('.scroll-up-button').on('click', function() {
     $('html, body').animate({ scrollTop: 0 }, 'slow');
     $('.new-tweet').slideDown('slow', function() {
       $(this).find('textarea').focus();
-    })
+    });
   });
 });
