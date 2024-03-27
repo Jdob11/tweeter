@@ -51,10 +51,12 @@ $(() => {
       $('.scroll-up-button').slideUp('fast');
       $('.nav-links').slideDown('fast');
       $('.tweet-container').removeClass('desktop-fullscreen');
+      $('.user-header').removeClass('hidden');
     } else {
       $('.scroll-up-button').slideDown('fast');
       $('.nav-links').slideUp('fast');
       $('.tweet-container').addClass('desktop-fullscreen');
+      $('.user-header').addClass('hidden');
     }
   })
 

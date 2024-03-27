@@ -25,5 +25,9 @@
   .user-header {
     width: 45%;
     margin: 10em 3em 5em 2em;
-  } 
+  }
+
+  .user-header.hidden {
+    display: none;
+  }
 }

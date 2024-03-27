@@ -52,7 +52,7 @@ form {
   opacity: 0.5;
 }
 
-.hidden {
+.new-tweet {
   display: none;
 }
 
@@ -63,6 +63,7 @@ form {
   padding: 1em;
   margin: 1em 0 .5em 0;
   position: relative;
+  display: none;
   box-shadow: var(--error-message-shadow-color) .25em .25em;
 }
 
@@ -80,11 +81,8 @@ form {
 }
 
 @media (min-width: 1200px) {
-  .new-tweet.hidden {
-    display: block;
-  }
-
   .new-tweet {
+    display: block;
     margin: 10em 2em 1em 3em;
   }
 }

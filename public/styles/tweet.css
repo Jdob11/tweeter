@@ -94,6 +94,7 @@
   .desktop-fullscreen {
     width:100%;
     margin: 0;
+    transition: width 1s ease, margin 1s ease;
   }
 
 }
