@@ -43,13 +43,13 @@ npm install
 ```
 
 ## Usage
-1. a. To start the server, run:
+1. a) To start the server, run:
 
 ```
 npm run start
 ```
 
-1. b. To run the server with automatic restart on file changes (using nodemon), run:
+1. b) To run the server with automatic restart on file changes (using nodemon), run:
 
 ```
 npm run local
