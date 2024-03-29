@@ -80,6 +80,10 @@
   padding: 0 1em;
 }
 
+.tweet-container {
+  overflow-wrap: anywhere;
+
+}
 
 @media (min-width: 1200px) {
   .tweet-container {
