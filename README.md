@@ -4,13 +4,15 @@ Tweeter is a simple, single-page Twitter clone.
 
 ## Introduction
 
-TinyApp uses EJS (Embedded JavaScript) templates for rendering dynamic content and forms across various pages. Below are the EJS files and their functionalities within the project.
+Tweeter leverages jQuery and Ajax to deliver a dynamic and interactive social media platform, allowing users to seamlessly share thoughts and engage with real-time updates without page reloads. Through the integration of these technologies, Tweeter offers a responsive and engaging user experience reminiscent of popular social networking sites.
 
 ## Final Product
 
-!["Desktop View"](https://github.com/Jdob11/tinyapp/blob/main/docs/tweeter-desktop-view.png?raw=true)
-!["Tablet View"](https://github.com/Jdob11/tinyapp/blob/main/docs/tweeter-tablet-view.png?raw=true)
-!["Mobile View"](https://github.com/Jdob11/tinyapp/blob/main/docs/tweeter-mobile-view.png?raw=true)
+<p align="center">
+  <img src="https://github.com/Jdob11/tweeter/blob/main/docs/tweeter-desktop-view.png?raw=true" alt="Screenshot of Tweeter desktop view">
+  <img src="https://github.com/Jdob11/tweeter/blob/main/docs/tweeter-tablet-view.png?raw=true" alt="Screenshot of Tweeter tablet view">
+  <img src="https://github.com/Jdob11/tweeter/blob/main/docs/tweeter-mobile-view.png?raw=true" alt="Screenshot of Tweeter mobile view">
+</p>
 
 ## Project Information
 
