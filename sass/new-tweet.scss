@@ -1,3 +1,5 @@
+@use 'vars';
+
 form {
   width: inherit;
 }
@@ -28,23 +30,24 @@ form {
 .button-counter {
   display: flex;
   justify-content: space-between;
-  padding: 0.75em 0 0 0;
+  padding: .75em 0 0 0;
+
 }
 
 .tweet-button {
-  background-color: #4056a1;
-  color: #ffffff;
-  font-family: "Bungee", sans-serif;
-  padding: 0.1em 0.5em;
+  background-color: vars.$nav-background-color;
+  color: vars.$nav-text-color;
+  font-family: vars.$tweeter-font;
+  padding: .1em .5em;
 }
 
 .counter {
-  font-family: "Bungee", sans-serif;
-  color: #000000;
+  font-family: vars.$tweeter-font;
+  color: vars.$counter-text-color;
 }
 
 .red-text {
-  color: #ff0000;
+  color: vars.$counter-over-limit-text-color;
 }
 
 .disabled {
@@ -56,27 +59,27 @@ form {
 }
 
 .error-message {
-  color: #ffffff;
-  background-color: #ff8787;
-  border: 5px #ff0000;
+  color: vars.$error-message-text-color;
+  background-color: vars.$error-message-background-color;
+  border: 5px vars.$error-message-shadow-color;
   padding: 1em;
-  margin: 1em 0 0.5em 0;
+  margin: 1em 0 .5em 0;
   position: relative;
   display: none;
-  box-shadow: #ff0000 0.25em 0.25em;
+  box-shadow: vars.$error-message-shadow-color .25em .25em;
 }
 
-.error-message:before {
-  content: "";
-  width: 0;
-  height: 0;
+.error-message:before{
+  content: '';  
+  width: 0;  
+  height: 0;  
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
-  border-top: 20px solid #ff8787;
-  position: absolute;
+  border-top: 20px solid vars.$error-message-background-color;
+  position: absolute;  
   bottom: -20px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%); 
 }
 
 /* Media Queries */

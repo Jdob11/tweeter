@@ -1,13 +1,19 @@
-.user-header {
+@use 'vars';
+
+@mixin verticalAlign {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.user-header {
+  @include verticalAlign;
   height: 400px;
   width: 100%;
   margin-top: 220px;
-  color: #ffffff;
-  background-color: #f7ad25;
+  color: vars.$user-header-text-color;
+  background-color: vars.$user-header-background-color;
   background-image: url("https://www.transparenttextures.com/patterns/foggy-birds.png");
 }
 
@@ -17,15 +23,17 @@
 
 /* Media Queries */
 @media (min-width: 576px) {
-  .user-header {
+  .user-header{
     margin-top: 120px;
   }
 }
+
 @media (min-width: 1200px) {
   .user-header {
     width: 45%;
     margin: 10em 3em 5em 2em;
   }
+
   .user-header.hidden {
     display: none;
   }

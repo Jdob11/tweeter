@@ -58,7 +58,7 @@ npm run local
 2. Open your web browser and navigate to [http://localhost:8080](http://localhost:8080).
 
 ## Dependencies
-- [express](https://www.npmjs.com/package/express): Fast, unopinionated, minimalist web framework for Node.js.
+- [express](https://www.npmjs.com/package/express): Fast, minimalist web framework for Node.js.
 - [body-parser](https://www.npmjs.com/package/body-parser): Node.js body parsing middleware.
 - [chance](https://www.npmjs.com/package/chance): Random generator helper library for JavaScript.
 - [md5](https://www.npmjs.com/package/md5): MD5 algorithm implementation for JavaScript.
@@ -66,6 +66,7 @@ npm run local
 ## Dev Dependencies
 
 - [nodemon](https://www.npmjs.com/package/nodemon): Monitor for any changes in your source and automatically restart your server.
+- [sass](https://sass-lang.com/): CSS preprocessor for adding features like variables, nesting, and mixins to make styling more efficient and maintainable.
 
 
 ## Contributors

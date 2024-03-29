@@ -3,19 +3,20 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
+@use 'vars';
+
 html {
   box-sizing: border-box;
 }
-
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
 body {
-  color: #545149;
-  background-color: #f4f1ec;
+  color: vars.$body-text-color;
+  background-color: vars.$body-background-color;
   font-size: 24px;
-  font-family: "Source Sans 3", sans-serif;
+  font-family: vars.$body-font;
 }
 
 main {

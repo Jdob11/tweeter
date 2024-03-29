@@ -1,16 +1,19 @@
+@use 'vars';
+
 nav {
   height: 220px;
   width: 100%;
-  background-color: #4056a1;
-  font-family: "Source Sans 3", sans-serif;
-  color: #ffffff;
+  background-color:vars.$nav-background-color;
+  font-family: vars.$body-font;
+  color: vars.$nav-text-color;
   padding: 2em 1.5em 0 1.5em;
   position: fixed;
   top: 0;
-}
-nav span {
-  font-family: "Bungee", sans-serif;
+  
+  span {
+  font-family: vars.$tweeter-font;
   font-size: 2.5rem;
+  }
 }
 
 .nav-container {
@@ -26,7 +29,7 @@ nav span {
 }
 
 .nav-link {
-  color: #ffffff;
+  color: vars.$nav-text-color;
   text-decoration: none;
   padding-top: 24px;
 }
@@ -37,15 +40,12 @@ nav span {
 
 /* Animations */
 @keyframes moveUpDown {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(5px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
 }
+
 .fa-angles-down {
-  color: #ff8787;
+  color: vars.$nav-arrows-icon-color;
   animation-play-state: paused;
 }
 
@@ -62,8 +62,8 @@ nav span {
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  background-color: #ff8787;
-  color: #ffffff;
+  background-color: vars.$nav-scroll-up-button-color;
+  color: vars.$nav-scroll-up-icon-color;
   border: none;
   display: none;
   cursor: pointer;
@@ -75,7 +75,7 @@ nav span {
 
 .scroll-up-button:hover {
   animation: moveUpDown 1s infinite;
-  box-shadow: #814444 0.1em 0.2em;
+  box-shadow: vars.$nav-scroll-up-button-shadow .1em .2em;
 }
 
 /* Media queries */
@@ -83,10 +83,12 @@ nav span {
   nav {
     height: 120px;
   }
+
   .nav-container {
     flex-direction: row;
     justify-content: space-between;
   }
+
   .nav-link {
     padding-top: 0;
   }

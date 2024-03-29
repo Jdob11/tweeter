@@ -1,6 +1,8 @@
+@use 'vars';
+
 .tweet {
   width: 100%;
-  padding: 0.5em;
+  padding: .5em;
   margin: 1em 0;
   font-weight: 300;
 }
@@ -13,8 +15,8 @@
   font-weight: bolder;
   border-bottom: solid;
   border-width: 5px;
-  padding: 0.5em 0.5em 1em 0.5em;
-  margin: 1em 0 0.5em 0;
+  padding: .5em .5em 1em .5em;
+  margin: 1em 0 .5em 0;
 }
 
 .tweet header {
@@ -30,7 +32,7 @@
 .avatar {
   height: 3.5em;
   width: 3.5em;
-  padding: 0.5em;
+  padding: .5em;
 }
 
 .tweet-user {
@@ -38,9 +40,9 @@
 }
 
 .handle {
-  padding: 0 0.5em;
+  padding: 0 .5em;
   font-weight: bolder;
-  color: #b4bcda;
+  color: vars.$tweet-handle-text-color;
 }
 
 .tweet footer {
@@ -52,19 +54,19 @@
   width: 6em;
   display: flex;
   justify-content: space-between;
-  font-size: 0.6em;
+  font-size: .6em;
   padding: 0 1em;
-  color: #4056a1;
+  color: vars.$tweet-icons-color;
 }
 
 .tweet-icons:hover .fa-flag:hover,
 .tweet-icons:hover .fa-retweet:hover,
 .tweet-icons:hover .fa-heart:hover {
-  color: #be9202;
+  color: vars.$tweet-icons-hover-color;
 }
 
 .time-since-tweet p {
-  font-size: 0.7em;
+  font-size: .7em;
   font-weight: bolder;
   margin: 0 0 1em 0;
   padding: 0 1em;
@@ -80,15 +82,18 @@
     margin: 0 2em 5em 3em;
     transition: margin-top 0.9s ease;
   }
+  
   .desktop-margin {
     margin-top: 10em;
   }
+  
   .desktop-fullscreen {
-    width: 100%;
+    width:100%;
     margin: 0;
     transition: width 1s ease, margin 1s ease;
   }
 }
+
 @media (min-width: 576px) {
   .tweet header {
     flex-direction: row;

@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/index.js",
+    "sass-watch": "sass sass:public/styles --watch --poll --no-source-map",
     "local": "./node_modules/.bin/nodemon --watch server -e js server/index.js"
   },
   "author": "Lighthouse Labs",
@@ -17,6 +18,7 @@
     "md5": "^2.3.0"
   },
   "devDependencies": {
-    "nodemon": "^1.9.2"
+    "nodemon": "^1.9.2",
+    "sass": "^1.72.0"
   }
 }
