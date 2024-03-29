@@ -8,9 +8,9 @@ TinyApp uses EJS (Embedded JavaScript) templates for rendering dynamic content a
 
 ## Final Product
 
-!["Desktop View"](https://github.com/Jdob11/tinyapp/blob/main/docs/urls_index.png?raw=true)
-!["Tablet View"](https://github.com/Jdob11/tinyapp/blob/main/docs/urls_show.png?raw=true)
-!["Mobile View"](https://github.com/Jdob11/tinyapp/blob/main/docs/register_error.png?raw=true)
+!["Desktop View"](https://github.com/Jdob11/tinyapp/blob/main/docs/tweeter-desktop-view.png?raw=true)
+!["Tablet View"](https://github.com/Jdob11/tinyapp/blob/main/docs/tweeter-tablet-view.png?raw=true)
+!["Mobile View"](https://github.com/Jdob11/tinyapp/blob/main/docs/tweeter-mobile-view.png?raw=true)
 
 ## Project Information
 
