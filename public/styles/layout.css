@@ -10,21 +10,10 @@ html {
   box-sizing: inherit;
 }
 
-/*
- * Global layout stuff
- */
-
 body {
   color: var(--body-text-color);
   background-color: var(--body-background-color);
   font-size: 24px;
-}
-
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
-
-body {
   font-family: "Source Sans 3", sans-serif;
 }
 
@@ -34,6 +23,7 @@ main {
   background-color: inherit;
 }
 
+/* Media Queries */
 @media (min-width: 1200px) {
   body {
     display: flex;

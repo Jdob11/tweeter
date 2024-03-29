@@ -80,6 +80,7 @@ form {
   transform: translateX(-50%); 
 }
 
+/* Media Queries */
 @media (min-width: 1200px) {
   .new-tweet {
     display: block;

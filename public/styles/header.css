@@ -15,6 +15,7 @@
   font-weight: lighter;
 }
 
+/* Media Queries */
 @media (min-width: 576px) {
   .user-header{
     margin-top: 120px;

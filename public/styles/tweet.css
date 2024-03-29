@@ -9,10 +9,6 @@
   border: solid 5px;
 }
 
-.tweet:hover {
-  box-shadow: var(--tweet-box-shadow-color) .25em .25em;
-}
-
 .tweet-content p {
   font-weight: bolder;
   border-bottom: solid;
@@ -61,14 +57,8 @@
   color: var(--tweet-icons-color);
 }
 
-.tweet-icons:hover .fa-flag:hover {
-  color: var(--tweet-icons-hover-color);
-}
-
-.tweet-icons:hover .fa-retweet:hover {
-  color: var(--tweet-icons-hover-color);
-}
-
+.tweet-icons:hover .fa-flag:hover,
+.tweet-icons:hover .fa-retweet:hover,
 .tweet-icons:hover .fa-heart:hover {
   color: var(--tweet-icons-hover-color);
 }
@@ -82,9 +72,9 @@
 
 .tweet-container {
   overflow-wrap: anywhere;
-
 }
 
+/* Media queries */
 @media (min-width: 1200px) {
   .tweet-container {
     margin: 0 2em 5em 3em;
@@ -94,13 +84,12 @@
   .desktop-margin {
     margin-top: 10em;
   }
-
+  
   .desktop-fullscreen {
     width:100%;
     margin: 0;
     transition: width 1s ease, margin 1s ease;
   }
-
 }
 
 @media (min-width: 576px) {
