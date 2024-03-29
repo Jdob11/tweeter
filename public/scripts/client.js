@@ -44,10 +44,10 @@ $(() => {
     }
   });
 
-  // event listener to hide nav link and reveal scroll up button when user has scrolled past 500px, to reverse if user scrolls back above 500px
   // create flag for if scroll up animation is running
   let isScrollingUp = false;
-
+  
+  // event listener to hide nav link and reveal scroll up button when user has scrolled past 500px, to reverse if user scrolls back above 500px
   $(window).on('scroll', function() {
     if (!isScrollingUp) {
       let scrollTop = $(this).scrollTop();
@@ -81,7 +81,7 @@ $(() => {
       $('.new-tweet').slideDown('slow', function() {
         $(this).find('textarea').focus();
   
-        // Rebind the scroll event handler after scroll-up animation completes
+        // rebind the scroll event handler after scroll-up animation completes
         $(window).on('scroll', function() {
           let scrollTop = $(this).scrollTop();
           if (scrollTop < 510 && !isScrollingUp) {

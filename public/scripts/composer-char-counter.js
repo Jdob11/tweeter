@@ -9,11 +9,11 @@ $(() => {
     const counter = $(this).closest('.new-tweet').find('.counter');
     // update counter with remaining characters
     counter.text(140 - characterCount);
-    // if character count exceeds max of 140, turn counter red and disable tweet button
+    // if character count exceeds max of 140, turn counter red
     if (characterCount > 140) {
       $(counter).addClass('red-text');
     } else {
-      // if character count comes back below max of 140, reset counter to black and reenable tweet button
+      // if character count comes back below max of 140, reset counter to black
       $(counter).removeClass('red-text');
     }
   });
