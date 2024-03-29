@@ -45,26 +45,58 @@ $(() => {
   });
 
   // event listener to hide nav link and reveal scroll up button when user has scrolled past 500px, to reverse if user scrolls back above 500px
+  // create flag for if scroll up animation is running
+  let isScrollingUp = false;
+
   $(window).on('scroll', function() {
-    let scrollTop = $(this).scrollTop();
-    if (scrollTop < 510) {
-      $('.scroll-up-button').slideUp('fast');
-      $('.nav-links').slideDown('fast');
-      $('.tweet-container').removeClass('desktop-fullscreen');
-      $('.user-header').removeClass('hidden');
-    } else {
-      $('.scroll-up-button').slideDown('fast');
-      $('.nav-links').slideUp('fast');
-      $('.tweet-container').addClass('desktop-fullscreen');
-      $('.user-header').addClass('hidden');
+    if (!isScrollingUp) {
+      let scrollTop = $(this).scrollTop();
+      if (scrollTop < 510) {
+        $('.scroll-up-button').slideUp('fast');
+        $('.nav-links').slideDown('fast');
+        $('.tweet-container').removeClass('desktop-fullscreen');
+        $('.user-header').removeClass('hidden');
+      } else {
+        $('.scroll-up-button').slideDown('fast');
+        $('.nav-links').slideUp('fast');
+        $('.tweet-container').addClass('desktop-fullscreen');
+        $('.user-header').addClass('hidden');
+      }
     }
   });
-
+  
   // event listener to scroll to the top, reveal the new tweet section and focus the cursor in the text area when scroll up button is clicked
   $('.scroll-up-button').on('click', function() {
-    $('html, body').animate({ scrollTop: 0 }, 'slow');
-    $('.new-tweet').slideDown('slow', function() {
-      $(this).find('textarea').focus();
+    // set the flag to true to indicate that scroll-up animation is in progress
+    isScrollingUp = true;
+  
+    // temporarily unbind the scroll event handler
+    $(window).off('scroll');
+  
+    $('html, body').animate({ scrollTop: 0 }, 'slow', function() {
+      // after scroll-up animation completes, reset the flag
+      isScrollingUp = false;
+  
+      // after scroll-up animation completes, show new tweet section and focus in text area
+      $('.new-tweet').slideDown('slow', function() {
+        $(this).find('textarea').focus();
+  
+        // Rebind the scroll event handler after scroll-up animation completes
+        $(window).on('scroll', function() {
+          let scrollTop = $(this).scrollTop();
+          if (scrollTop < 510 && !isScrollingUp) {
+            $('.scroll-up-button').slideUp('fast');
+            $('.nav-links').slideDown('fast');
+            $('.tweet-container').removeClass('desktop-fullscreen');
+            $('.user-header').removeClass('hidden');
+          } else {
+            $('.scroll-up-button').slideDown('fast');
+            $('.nav-links').slideUp('fast');
+            $('.tweet-container').addClass('desktop-fullscreen');
+            $('.user-header').addClass('hidden');
+          }
+        });
+      });
     });
   });
 });
