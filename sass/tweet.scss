@@ -1,4 +1,4 @@
-@use 'vars';
+@use 'vars' as *;
 
 .tweet {
   width: 100%;
@@ -7,7 +7,7 @@
   font-weight: 300;
 
   &:hover {
-    box-shadow: vars.$tweet-box-shadow-color .3em .3em;
+    box-shadow: $tweet-box-shadow-color .3em .3em;
   }
 
   &-border {
@@ -46,7 +46,7 @@
     .handle {
       padding: 0 .5em;
       font-weight: bolder;
-      color: vars.$tweet-handle-text-color;
+      color: $tweet-handle-text-color;
     }
   }
 
@@ -60,10 +60,10 @@
       justify-content: space-between;
       font-size: .6em;
       padding: 0 1em;
-      color: vars.$tweet-icons-color;
+      color: $tweet-icons-color;
 
       &:hover {
-        color: vars.$tweet-icons-hover-color;
+        color: $tweet-icons-hover-color;
       }
     }
 

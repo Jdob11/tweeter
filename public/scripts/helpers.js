@@ -1,4 +1,5 @@
 /* global $, timeago, window*/
+/* eslint-disable no-unused-vars*/
 
 // function to create tweet element
 const createTweetElement = (tweet) => {
@@ -182,6 +183,8 @@ const scrollUpAnimation = function() {
   $('html, body').animate({ scrollTop: 0 }, 'slow', function() {
     // after scroll-up animation completes, reset the flag
     isScrollingUp = false;
+    $('.tweet-container').removeClass('desktop-fullscreen');
+    $('.user-header').removeClass('hidden');
 
     // after scroll-up animation completes, show new tweet section and focus in text area
     $('.new-tweet').slideDown('slow', function() {
@@ -215,13 +218,4 @@ const submitWithEnter = function(event) {
     event.preventDefault();
     submitTweet();
   }
-};
-
-module.exports = {
-  loadTweets,
-  submitTweet,
-  toggleNewTweet,
-  scrollUpAnimation,
-  handleScroll,
-  submitWithEnter
 };

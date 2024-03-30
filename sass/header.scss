@@ -1,4 +1,4 @@
-@use 'vars';
+@use 'vars' as *;
 
 @mixin verticalAlign {
   display: flex;
@@ -12,8 +12,8 @@
   height: 400px;
   width: 100%;
   margin-top: 220px;
-  color: vars.$user-header-text-color;
-  background-color: vars.$user-header-background-color;
+  color: $user-header-text-color;
+  background-color: $user-header-background-color;
   background-image: url("https://www.transparenttextures.com/patterns/foggy-birds.png");
 }
 

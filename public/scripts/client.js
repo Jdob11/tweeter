@@ -4,14 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 /* global $, window */
-const {
-  loadTweets,
-  submitTweet,
-  toggleNewTweet,
-  scrollUpAnimation,
-  handleScroll,
-  submitWithEnter
-} = require('public/scripts/helpers');
+/* eslint-disable no-undef*/
 
 $(() => {
   loadTweets();

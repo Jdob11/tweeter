@@ -1,11 +1,11 @@
-@use 'vars';
+@use 'vars' as *;
 
 nav {
   height: 220px;
   width: 100%;
-  background-color: vars.$nav-background-color;
-  font-family: vars.$body-font;
-  color: vars.$nav-text-color;
+  background-color: $nav-background-color;
+  font-family: $body-font;
+  color: $nav-text-color;
   padding: 2em 1.5em 0 1.5em;
   position: fixed;
   top: 0;
@@ -16,7 +16,7 @@ nav {
   }
 
   span {
-    font-family: vars.$tweeter-font;
+    font-family: $tweeter-font;
     font-size: 2.5rem;
   }
 
@@ -37,7 +37,7 @@ nav {
     }
 
     .nav-link {
-      color: vars.$nav-text-color;
+      color: $nav-text-color;
       text-decoration: none;
       padding-top: 24px;
 
@@ -52,7 +52,7 @@ nav {
   }
 
   .fa-angles-down {
-    color: vars.$nav-arrows-icon-color;
+    color: $nav-arrows-icon-color;
     animation-play-state: paused;
     &:hover {
       cursor: pointer;
@@ -70,8 +70,8 @@ nav {
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  background-color: vars.$nav-scroll-up-button-color;
-  color: vars.$nav-scroll-up-icon-color;
+  background-color: $nav-scroll-up-button-color;
+  color: $nav-scroll-up-icon-color;
   border: none;
   display: none;
   cursor: pointer;
@@ -82,7 +82,7 @@ nav {
 
   &:hover {
     animation: moveUpDown 1s infinite;
-    box-shadow: vars.$nav-scroll-up-button-shadow .1em .2em;
+    box-shadow: $nav-scroll-up-button-shadow .1em .2em;
   }
 }
 

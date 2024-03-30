@@ -3,7 +3,7 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
-@use 'vars';
+@use 'vars' as *;
 
 html {
   box-sizing: border-box;
@@ -13,10 +13,10 @@ html {
 }
 
 body {
-  color: vars.$body-text-color;
-  background-color: vars.$body-background-color;
+  color: $body-text-color;
+  background-color: $body-background-color;
   font-size: 24px;
-  font-family: vars.$body-font;
+  font-family: $body-font;
 }
 
 main {

@@ -1,4 +1,4 @@
-@use 'vars';
+@use 'vars' as *;
 
 form {
   width: inherit;
@@ -33,18 +33,18 @@ form {
   padding: .75em 0 0 0;
 
   .tweet-button {
-    background-color: vars.$nav-background-color;
-    color: vars.$nav-text-color;
-    font-family: vars.$tweeter-font;
+    background-color: $nav-background-color;
+    color: $nav-text-color;
+    font-family: $tweeter-font;
     padding: .1em .5em;
   }
 
   .counter {
-    font-family: vars.$tweeter-font;
-    color: vars.$counter-text-color;
+    font-family: $tweeter-font;
+    color: $counter-text-color;
 
     &.red-text {
-      color: vars.$counter-over-limit-text-color;
+      color: $counter-over-limit-text-color;
     }
   }
 }
@@ -59,14 +59,14 @@ form {
 }
 
 .error-message {
-  color: vars.$error-message-text-color;
-  background-color: vars.$error-message-background-color;
-  border: 5px vars.$error-message-shadow-color;
+  color: $error-message-text-color;
+  background-color: $error-message-background-color;
+  border: 5px $error-message-shadow-color;
   padding: 1em;
   margin: 1em 0 .5em 0;
   position: relative;
   display: none;
-  box-shadow: vars.$error-message-shadow-color .25em .25em;
+  box-shadow: $error-message-shadow-color .25em .25em;
 
   &:before {
     content: '';
@@ -74,7 +74,7 @@ form {
     height: 0;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
-    border-top: 20px solid vars.$error-message-background-color;
+    border-top: 20px solid $error-message-background-color;
     position: absolute;
     bottom: -20px;
     left: 50%;
