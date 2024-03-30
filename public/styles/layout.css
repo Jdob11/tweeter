@@ -16,17 +16,16 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: "Source Sans 3", sans-serif;
+  min-width: 375px;
+}
+@media (min-width: 1200px) {
+  body {
+    display: flex;
+  }
 }
 
 main {
   width: 90%;
   margin: 0 auto;
   background-color: inherit;
-}
-
-/* Media Queries */
-@media (min-width: 1200px) {
-  body {
-    display: flex;
-  }
 }
