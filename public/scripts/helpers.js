@@ -196,6 +196,7 @@ const scrollUpAnimation = function() {
   });
 };
 
+// function to handle scroll event listener to reveal scroll up button, hide user header and have tweets become fullscreen on scrolling down 510 pixels from top of window
 const handleScroll = function() {
   if (!isScrollingUp) {
     let scrollTop = $(window).scrollTop();
@@ -213,6 +214,7 @@ const handleScroll = function() {
   }
 };
 
+// function ti prevent standard enter functionality in textarea and allow enter to be used to submit
 const submitWithEnter = function(event) {
   if (event.keyCode === 13 && !event.shiftKey) {
     event.preventDefault();
