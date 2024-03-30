@@ -1,19 +1,15 @@
 @use 'vars' as *;
 
 nav {
-  height: 220px;
+  height: 120px;
   width: 100%;
   background-color: $nav-background-color;
   font-family: $body-font;
   color: $nav-text-color;
-  padding: 2em 1.5em 0 1.5em;
+  padding: .5em 1.5em 0 1.5em;
   position: fixed;
   top: 0;
   z-index: 9999;
-
-  @media (min-width: 576px) {
-    height: 120px;
-  }
 
   span {
     font-family: $tweeter-font;
@@ -39,10 +35,9 @@ nav {
     .nav-link {
       color: $nav-text-color;
       text-decoration: none;
-      padding-top: 24px;
 
       @media (min-width: 576px) {
-        padding-top: 0;
+        padding-top: 1em;
       }
 
       &:hover {

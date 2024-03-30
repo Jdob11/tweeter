@@ -1,18 +1,13 @@
 nav {
-  height: 220px;
+  height: 120px;
   width: 100%;
   background-color: #4056a1;
   font-family: "Source Sans 3", sans-serif;
   color: #ffffff;
-  padding: 2em 1.5em 0 1.5em;
+  padding: 0.5em 1.5em 0 1.5em;
   position: fixed;
   top: 0;
   z-index: 9999;
-}
-@media (min-width: 576px) {
-  nav {
-    height: 120px;
-  }
 }
 nav span {
   font-family: "Bungee", sans-serif;
@@ -37,11 +32,10 @@ nav .nav-container .nav-links {
 nav .nav-container .nav-link {
   color: #ffffff;
   text-decoration: none;
-  padding-top: 24px;
 }
 @media (min-width: 576px) {
   nav .nav-container .nav-link {
-    padding-top: 0;
+    padding-top: 1em;
   }
 }
 nav .nav-container .nav-link:hover {
