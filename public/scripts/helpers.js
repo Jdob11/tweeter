@@ -1,5 +1,4 @@
-/* global $, timeago*/
-/* eslint-disable no-unused-vars*/
+/* global $, timeago, window*/
 
 // function to create tweet element
 const createTweetElement = (tweet) => {
@@ -167,7 +166,7 @@ const toggleNewTweet = function(event) {
     });
     $('.tweet-container').addClass('desktop-margin');
   }
-}
+};
 
 // create flag for if scroll up animation is running
 let isScrollingUp = false;
@@ -192,7 +191,7 @@ const scrollUpAnimation = function() {
       $(window).on('scroll', handleScroll);
     });
   });
-}
+};
 
 const handleScroll = function() {
   if (!isScrollingUp) {
@@ -209,11 +208,20 @@ const handleScroll = function() {
       $('.user-header').addClass('hidden');
     }
   }
-}
+};
 
 const submitWithEnter = function(event) {
   if (event.keyCode === 13 && !event.shiftKey) {
     event.preventDefault();
     submitTweet();
   }
-}
+};
+
+module.exports = {
+  loadTweets,
+  submitTweet,
+  toggleNewTweet,
+  scrollUpAnimation,
+  handleScroll,
+  submitWithEnter
+};

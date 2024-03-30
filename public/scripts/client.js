@@ -3,8 +3,15 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-/* global $, loadTweets, submitTweet, window */
-
+/* global $, window */
+const {
+  loadTweets,
+  submitTweet,
+  toggleNewTweet,
+  scrollUpAnimation,
+  handleScroll,
+  submitWithEnter
+} = require('public/scripts/helpers');
 
 $(() => {
   loadTweets();

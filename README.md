@@ -7,12 +7,12 @@ Tweeter is a simple, single-page Twitter clone.
 Tweeter leverages jQuery and Ajax to deliver a dynamic and interactive social media platform, allowing users to seamlessly share thoughts and engage with real-time updates without page reloads. Through the integration of these technologies, Tweeter offers a responsive and engaging user experience reminiscent of popular social networking sites.
 
 ## Final Product
-
-<p align="center">
-  <img src="https://github.com/Jdob11/tweeter/blob/main/docs/tweeter-desktop-view.png?raw=true" alt="Screenshot of Tweeter desktop view">
-  <img src="https://github.com/Jdob11/tweeter/blob/main/docs/tweeter-tablet-view.png?raw=true" alt="Screenshot of Tweeter tablet view">
-  <img src="https://github.com/Jdob11/tweeter/blob/main/docs/tweeter-mobile-view.png?raw=true" alt="Screenshot of Tweeter mobile view">
-</p>
+#### Desktop View
+!["Screenshot of Tweeter desktop view"](https://github.com/Jdob11/tweeter/blob/main/docs/tweeter-desktop-view.png?raw=true)
+#### Tablet View
+!["Screenshot of Tweeter tablet view"](https://github.com/Jdob11/tweeter/blob/main/docs/tweeter-tablet-view.png?raw=true)
+#### Mobile View
+!["Screenshot of Tweeter mobile view"](https://github.com/Jdob11/tweeter/blob/main/docs/tweeter-mobile-view.png?raw=true)
 
 ## Project Information
 
