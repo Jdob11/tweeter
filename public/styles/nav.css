@@ -13,6 +13,11 @@ nav span {
   font-family: "Bungee", sans-serif;
   font-size: 2.5rem;
 }
+@media (min-width: 576px) {
+  nav span {
+    padding-top: 0.6em;
+  }
+}
 nav .nav-container {
   display: flex;
   flex-direction: column;

@@ -183,6 +183,7 @@ const scrollUpAnimation = function() {
   $('html, body').animate({ scrollTop: 0 }, 'slow', function() {
     // after scroll-up animation completes, reset the flag
     isScrollingUp = false;
+    $('.nav-links').slideDown('fast');
     $('.tweet-container').removeClass('desktop-fullscreen');
     $('.user-header').removeClass('hidden');
 
