@@ -9,6 +9,7 @@ nav {
   padding: 2em 1.5em 0 1.5em;
   position: fixed;
   top: 0;
+  z-index: 9999;
 
   @media (min-width: 576px) {
     height: 120px;
