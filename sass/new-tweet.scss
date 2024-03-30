@@ -13,18 +13,18 @@ form {
   flex-direction: column;
   align-items: center;
   width: 100%;
-}
 
-.new-tweet textarea {
-  width: 100%;
-  font-weight: 600;
-  scrollbar-width: none;
-  resize: none;
-  box-sizing: border-box;
-  background-color: inherit;
-  border: none;
-  border-bottom: solid;
-  border-width: 5px;
+  textarea {
+    width: 100%;
+    font-weight: 600;
+    scrollbar-width: none;
+    resize: none;
+    box-sizing: border-box;
+    background-color: inherit;
+    border: none;
+    border-bottom: solid;
+    border-width: 5px;
+  }
 }
 
 .button-counter {
@@ -32,30 +32,30 @@ form {
   justify-content: space-between;
   padding: .75em 0 0 0;
 
-}
+  .tweet-button {
+    background-color: vars.$nav-background-color;
+    color: vars.$nav-text-color;
+    font-family: vars.$tweeter-font;
+    padding: .1em .5em;
+  }
 
-.tweet-button {
-  background-color: vars.$nav-background-color;
-  color: vars.$nav-text-color;
-  font-family: vars.$tweeter-font;
-  padding: .1em .5em;
-}
+  .counter {
+    font-family: vars.$tweeter-font;
+    color: vars.$counter-text-color;
 
-.counter {
-  font-family: vars.$tweeter-font;
-  color: vars.$counter-text-color;
-}
-
-.red-text {
-  color: vars.$counter-over-limit-text-color;
-}
-
-.disabled {
-  opacity: 0.5;
+    &.red-text {
+      color: vars.$counter-over-limit-text-color;
+    }
+  }
 }
 
 .new-tweet {
   display: none;
+
+  @media (min-width: 1200px) {
+    display: block;
+    margin: 10em 2em 1em 3em;
+  }
 }
 
 .error-message {
@@ -67,25 +67,18 @@ form {
   position: relative;
   display: none;
   box-shadow: vars.$error-message-shadow-color .25em .25em;
-}
 
-.error-message:before{
-  content: '';  
-  width: 0;  
-  height: 0;  
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-top: 20px solid vars.$error-message-background-color;
-  position: absolute;  
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%); 
-}
-
-/* Media Queries */
-@media (min-width: 1200px) {
-  .new-tweet {
-    display: block;
-    margin: 10em 2em 1em 3em;
+  &:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid vars.$error-message-background-color;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
+

@@ -4,51 +4,45 @@
   margin: 1em 0;
   font-weight: 300;
 }
-
+.tweet:hover {
+  box-shadow: #b4bcda 0.3em 0.3em;
+}
 .tweet-border {
   border: solid 5px;
 }
-
-.tweet-content p {
+.tweet .tweet-content p {
   font-weight: bolder;
   border-bottom: solid;
   border-width: 5px;
   padding: 0.5em 0.5em 1em 0.5em;
   margin: 1em 0 0.5em 0;
 }
-
 .tweet header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-
-.avatar-container {
+.tweet header .avatar-container {
   display: flex;
 }
-
-.avatar {
+.tweet header .avatar-container .avatar {
   height: 3.5em;
   width: 3.5em;
   padding: 0.5em;
 }
-
-.tweet-user {
+.tweet header .tweet-user {
   margin: 0;
 }
-
-.handle {
+.tweet header .handle {
   padding: 0 0.5em;
   font-weight: bolder;
   color: #b4bcda;
 }
-
 .tweet footer {
   display: flex;
   justify-content: space-between;
 }
-
-.tweet-icons {
+.tweet footer .tweet-icons {
   width: 6em;
   display: flex;
   justify-content: space-between;
@@ -56,14 +50,10 @@
   padding: 0 1em;
   color: #4056a1;
 }
-
-.tweet-icons:hover .fa-flag:hover,
-.tweet-icons:hover .fa-retweet:hover,
-.tweet-icons:hover .fa-heart:hover {
+.tweet footer .tweet-icons:hover {
   color: #be9202;
 }
-
-.time-since-tweet p {
+.tweet footer .time-since-tweet p {
   font-size: 0.7em;
   font-weight: bolder;
   margin: 0 0 1em 0;
@@ -73,22 +63,21 @@
 .tweet-container {
   overflow-wrap: anywhere;
 }
-
-/* Media queries */
 @media (min-width: 1200px) {
   .tweet-container {
     margin: 0 2em 5em 3em;
     transition: margin-top 0.9s ease;
   }
-  .desktop-margin {
+  .tweet-container.desktop-margin {
     margin-top: 10em;
   }
-  .desktop-fullscreen {
+  .tweet-container.desktop-fullscreen {
     width: 100%;
     margin: 0;
     transition: width 1s ease, margin 1s ease;
   }
 }
+
 @media (min-width: 576px) {
   .tweet header {
     flex-direction: row;

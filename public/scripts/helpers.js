@@ -153,3 +153,67 @@ const submitTweet = function() {
       $('.tweet-button').prop('disabled', false).removeClass('disabled');
     });
 };
+
+// function to toggle new tweet text area
+const toggleNewTweet = function(event) {
+  event.preventDefault();
+  if ($('.new-tweet').first().is(':hidden')) {
+    $('.new-tweet').slideDown('slow', function() {
+      $(this).find('textarea').focus();
+    });
+    $('.tweet-container').removeClass('desktop-margin');
+  } else {
+    $('.new-tweet').slideUp('slow', function() {
+    });
+    $('.tweet-container').addClass('desktop-margin');
+  }
+}
+
+// create flag for if scroll up animation is running
+let isScrollingUp = false;
+
+// function to animate scroll to top of page on scroll button click, and unbind and rebind scroll event handler to prevent repeated animation during scroll up
+const scrollUpAnimation = function() {
+  // set the flag to true to indicate that scroll-up animation is in progress
+  isScrollingUp = true;
+
+  // temporarily unbind the scroll event handler
+  $(window).off('scroll');
+
+  $('html, body').animate({ scrollTop: 0 }, 'slow', function() {
+    // after scroll-up animation completes, reset the flag
+    isScrollingUp = false;
+
+    // after scroll-up animation completes, show new tweet section and focus in text area
+    $('.new-tweet').slideDown('slow', function() {
+      $(this).find('textarea').focus();
+
+      // rebind the scroll event handler after scroll-up animation completes
+      $(window).on('scroll', handleScroll);
+    });
+  });
+}
+
+const handleScroll = function() {
+  if (!isScrollingUp) {
+    let scrollTop = $(window).scrollTop();
+    if (scrollTop < 510) {
+      $('.scroll-up-button').slideUp('fast');
+      $('.nav-links').slideDown('fast');
+      $('.tweet-container').removeClass('desktop-fullscreen');
+      $('.user-header').removeClass('hidden');
+    } else {
+      $('.scroll-up-button').slideDown('fast');
+      $('.nav-links').slideUp('fast');
+      $('.tweet-container').addClass('desktop-fullscreen');
+      $('.user-header').addClass('hidden');
+    }
+  }
+}
+
+const submitWithEnter = function(event) {
+  if (event.keyCode === 13 && !event.shiftKey) {
+    event.preventDefault();
+    submitTweet();
+  }
+}

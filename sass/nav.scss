@@ -3,60 +3,67 @@
 nav {
   height: 220px;
   width: 100%;
-  background-color:vars.$nav-background-color;
+  background-color: vars.$nav-background-color;
   font-family: vars.$body-font;
   color: vars.$nav-text-color;
   padding: 2em 1.5em 0 1.5em;
   position: fixed;
   top: 0;
-  
-  span {
-  font-family: vars.$tweeter-font;
-  font-size: 2.5rem;
+
+  @media (min-width: 576px) {
+    height: 120px;
   }
-}
 
-.nav-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  span {
+    font-family: vars.$tweeter-font;
+    font-size: 2.5rem;
+  }
 
-.nav-links {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  .nav-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-.nav-link {
-  color: vars.$nav-text-color;
-  text-decoration: none;
-  padding-top: 24px;
-}
+    @media (min-width: 576px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
 
-.nav-link:hover {
-  cursor: pointer;
-}
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-/* Animations */
-@keyframes moveUpDown {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(5px); }
-}
+    .nav-link {
+      color: vars.$nav-text-color;
+      text-decoration: none;
+      padding-top: 24px;
 
-.fa-angles-down {
-  color: vars.$nav-arrows-icon-color;
-  animation-play-state: paused;
-}
+      @media (min-width: 576px) {
+        padding-top: 0;
+      }
 
-.fa-angles-down:hover {
-  cursor: pointer;
-  animation: moveUpDown 1s infinite;
-}
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .fa-angles-down {
+    color: vars.$nav-arrows-icon-color;
+    animation-play-state: paused;
+    &:hover {
+      cursor: pointer;
+      animation: moveUpDown 1s infinite;
+      }
+    }
+  }
 
 .nav-links .nav-link:hover + .fa-angles-down {
   animation: moveUpDown 1s infinite;
 }
+
 
 .scroll-up-button {
   border-radius: 50%;
@@ -71,25 +78,14 @@ nav {
   bottom: 1em;
   right: 1em;
   animation-play-state: paused;
+
+  &:hover {
+    animation: moveUpDown 1s infinite;
+    box-shadow: vars.$nav-scroll-up-button-shadow .1em .2em;
+  }
 }
 
-.scroll-up-button:hover {
-  animation: moveUpDown 1s infinite;
-  box-shadow: vars.$nav-scroll-up-button-shadow .1em .2em;
-}
-
-/* Media queries */
-@media (min-width: 576px) {
-  nav {
-    height: 120px;
-  }
-
-  .nav-container {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .nav-link {
-    padding-top: 0;
-  }
+@keyframes moveUpDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
 }
